@@ -1,23 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Laura Knight | Portfolio</title>
+  <style>
+    :root {
+      --teal: #20b2aa;
+      --teal-dark: #168183;
+      --bg: #f7f9fa;
+      --text: #222;
+      --card-bg: #fff;
+      --shadow: 0 2px 8px rgba(32,178,170,0.10);
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--teal);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    h1 { margin: 0 0 0.5rem 0; }
+    nav {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .filter-btn {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.3rem 0.5rem 0.3rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--teal-dark);
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 2rem;
+      padding: 0 2rem 2rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 6px 18px rgba(32,178,170,0.17);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+      text-align: center;
+    }
+    .card-title {
+      margin: 0.3rem 0;
+      color: var(--teal);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    /* CONTACT FORM */
+    #contact {
+      background: var(--card-bg);
+      max-width: 500px;
+      margin: 3rem auto 2rem auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      text-align: center;
+    }
+    #contact label {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: bold;
+      color: var(--teal-dark);
+    }
+    #contact input, #contact textarea {
+      width: 90%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    #contact button {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #contact button:hover {
+      background: var(--teal-dark);
+    }
+    @media (max-width:600px) {
+      .portfolio-grid { padding: 0 0.2rem 2rem 0.2rem; }
+      #contact { padding: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Gallery</h1>
-    <div class="gallery">
-      <!-- 
-        To embed your Google Photos album:
-        1. Go to your Google Photos and open the album you want to share.
-        2. Click 'Share' and create a link if you haven't already.
-        3. Copy the share link.
-        4. Visit https://embed-google-photos.com/ and paste your album link to generate an iframe embed code.
-        5. Copy the src URL from that iframe.
-        6. Replace 'YOUR_GOOGLE_PHOTOS_EMBED_URL' in the iframe below with the link you just copied.
-      -->
-      <iframe src="YOUR_GOOGLE_PHOTOS_EMBED_URL" width="600" height="400" frameborder="0"></iframe>
+  <header>
+    <h1>Laura Knight</h1>
+    <p>Inspiring Portfolio: Photography, Research & Design</p>
+  </header>
+  <nav>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="photography">Photography</button>
+    <button class="filter-btn" data-filter="film">Film Research</button>
+    <button class="filter-btn" data-filter="historical">Historical Research</button>
+    <button class="filter-btn" data-filter="design">Commercial/Residential Design</button>
+  </nav>
+  <section class="portfolio-grid" id="portfolio">
+    <!-- EXAMPLES: Replace with real content when ready -->
+    <div class="card" data-category="photography">
+      <img src="https://via.placeholder.com/400x180?text=Photography+1" alt="Photography 1">
+      <div class="card-content">
+        <div class="card-title">Photography Project 1</div>
+        <div>Sample description of a photography project.</div>
+      </div>
     </div>
+    <div class="card" data-category="film">
+      <img src="https://via.placeholder.com/400x180?text=Film+Research+1" alt="Film Research 1">
+      <div class="card-content">
+        <div class="card-title">Film Research Project 1</div>
+        <div>Sample description of a film research project.</div>
+      </div>
+    </div>
+    <div class="card" data-category="historical">
+      <img src="https://via.placeholder.com/400x180?text=Historical+Research+1" alt="Historical Research 1">
+      <div class="card-content">
+        <div class="card-title">Historical Research 1</div>
+        <div>Sample description of a historical research project.</div>
+      </div>
+    </div>
+    <div class="card" data-category="design">
+      <img src="https://via.placeholder.com/400x180?text=Design+Project+1" alt="Design Project 1">
+      <div class="card-content">
+        <div class="card-title">Commercial/Residential Design 1</div>
+        <div>Sample description of a design project.</div>
+      </div>
+    </div>
+    <!-- Add more cards as needed... -->
+  </section>
+
+  <section id="contact">
+    <h2>Contact Laura</h2>
+    <form id="contactForm" autocomplete="off">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="contactMsg" style="display:none; color:var(--teal-dark); margin-top:1rem;"></div>
+  </section>
+
+  <script>
+    // Filtering
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.portfolio-grid .card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Contact Form Handler (secure: backend recommended for production)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // For demo: simulate send, hide email in frontend!
+      document.getElementById('contactMsg').style.display = 'block';
+      document.getElementById('contactMsg').textContent =
+        "Thank you for your message! Laura will get back to you soon.";
+      this.reset();
+
+      // For production: use serverless handler or service (Formspree, Netlify, etc)
+      // Never put Laura's email address directly in the JS or HTML!
+    });
+  </script>
 </body>
 </html>
